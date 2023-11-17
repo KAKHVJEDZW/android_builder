@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./project
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 11
@@ -29,7 +31,8 @@ jobs:
       - name: Build gradle project
         run: ./gradlew build
       - name: Build apk
-        run: ./gradlew assemble
+        working-directory: ${{env.working-directory}}
+        run: ./gradlew assembleDebug --stacktrace
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
