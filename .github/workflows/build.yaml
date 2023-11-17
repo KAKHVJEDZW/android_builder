@@ -14,13 +14,6 @@ jobs:
         with:
           distribution: temurin
           java-version: 11
-      - name: Setup gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: current
-          arguments: assembleRelease
-      - name: Execute Gradle build
-        run: ./gradlew build
       - id: get-project
         name: Get project name
         run: echo "::set-output name=PROJECT::$(cat project-to-build)"
