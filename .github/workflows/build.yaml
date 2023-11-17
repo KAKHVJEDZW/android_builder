@@ -14,10 +14,9 @@ jobs:
         with:
           distribution: temurin
           java-version: 11
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-      - name: Execute Gradle build
-        run: ./gradlew build
+      - uses: gradle/gradle-build-action@v2
+        with:
+          dependency-graph: download-and-submit
       - id: get-project
         name: Get project name
         run: echo "::set-output name=PROJECT::$(cat project-to-build)"
