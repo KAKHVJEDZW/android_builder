@@ -17,9 +17,6 @@ jobs:
         run: gradle init
       - name: Setup gradle
         uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: current
-          arguments: assembleRelease
       - name: Build with Gradle
         run: gradle wrapper
       - id: get-project
