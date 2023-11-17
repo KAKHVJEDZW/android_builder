@@ -14,7 +14,7 @@ jobs:
           java-version: 17
           distribution: 'adopt'
       - name: Build with Gradle
-        run: ./gradlew wrapper 
+        run: gradle wrapper
       - id: get-project
         name: Get project name
         run: echo "::set-output name=PROJECT::$(cat project-to-build)"
